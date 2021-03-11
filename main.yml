@@ -1,0 +1,19 @@
+---
+- hosts: all
+
+  vars:
+    pip_install_packages:
+      - name: docker
+
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - role: geerlingguy.git
+      become: true
+    - role: geerlingguy.pip
+
+  tasks:
+    - include_tasks: tasks/ansible-setup.yml
+    - include_tasks: tasks/vagrant-setup.yml
+

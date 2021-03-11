@@ -1,0 +1,22 @@
+---
+- name: Ensure temp download directory exist.
+  file:
+    state: directory
+    path: "{{vagrant_tmp_dir}}"
+  tags: ["applications", "vagrant"]
+
+- include: vagrant-debian.yml
+  when: ansible_os_family == 'Debian'
+  tags: ["applications", "vagrant"]
+
+- include: vagrant-redhat.yml
+  when: ansible_os_family == 'RedHat'
+  tags: ["applications", "vagrant"]
+
+- name: Ensure VAGRANT_WSL_ENABLE_WINDOWS_ACCESS is set.
+  lineinfile:
+    dest: ~/.bashrc
+    line: "{{ item }}"
+    state: present
+  loop:
+    - export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
