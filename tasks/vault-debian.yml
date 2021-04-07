@@ -1,0 +1,25 @@
+---
+- name: Add HashiCorp Vault GPG apt key
+  become: yes
+  ansible.builtin.apt_key:
+    url: https://apt.releases.hashicorp.com/gpg
+    state: present
+
+- name: Add HashiCorp Vault apt repository
+  become: yes
+  ansible.builtin.apt_repository:
+    repo: "deb [arch=amd64] https://apt.releases.hashicorp.com {{ ansible_distribution_release | lower }} main"
+    state: present
+  register: result
+
+- name: Update apt chache
+  become: yes
+  ansible.builtin.apt:
+    update_cache: yes
+  when: result.changed
+
+- name: Install Vault binaries
+  become: yes
+  ansible.builtin.apt:
+    name: vault
+    state: absent
