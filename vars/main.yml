@@ -6,4 +6,11 @@ vagrant_tmp_deb: "{{vagrant_tmp_dir}}/vagrant_{{vagrant_version}}.deb"
 vagrant_tmp_rpm: "{{vagrant_tmp_dir}}/vagrant_{{vagrant_version}}.rpm"
 vagrant_url_deb: "https://releases.hashicorp.com/vagrant/{{vagrant_version}}/vagrant_{{vagrant_version}}_{{ansible_architecture}}.deb"
 vagrant_url_rpm: "https://releases.hashicorp.com/vagrant/{{vagrant_version}}/vagrant_{{vagrant_version}}_{{ansible_architecture}}.rpm"
+sysbox_version: "0.2.1"
+sysbox_url_deb: "https://github.com/nestybox/sysbox/releases/download/v{{sysbox_version}}/sysbox_{{sysbox_version}}-0.ubuntu-focal_amd64.deb"
+sysbox_tmp_deb: "{{downloads}}/sysbox_{{sysbox_version}}-0.ubuntu-focal_amd64.deb"
+sysbox_checksum: "126e4963755cdca440579d81409b3f4a6d6ef4c6c2d4cf435052a13468e2c250"
+
+
+
 
