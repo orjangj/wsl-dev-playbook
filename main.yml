@@ -14,6 +14,7 @@
     - role: geerlingguy.pip
 
   tasks:
-    - include_tasks: tasks/ansible-setup.yml
-    - include_tasks: tasks/vagrant-setup.yml
+    - import_tasks: tasks/vagrant-setup.yml
+      tags: ["applications", "vagrant"]
+
 

@@ -4,7 +4,7 @@ This playbook installs and configures most of the software I use in WSL for soft
 
 ## Installation
 
-  1. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html).
+  1. [Install Ansible](https://docs.ansible.com/ansible/latest/installation_guide/index.html). It's recommended to install ansible using pip in a virtual environment.
   2. Clone this repository to your local drive.
   3. Run `$ ansible-galaxy install -r requirements.yml` inside this directory to install required Ansible roles.
   4. Run `$ ansible-playbook main.yml -i inventory --ask-become-pass` inside this directory. Enter your account password when prompted.
