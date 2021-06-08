@@ -14,6 +14,12 @@
     - role: geerlingguy.pip
 
   tasks:
+    - import_tasks: tasks/configuration.yml
+      tags: ["configuration"]
+
+    - import_tasks: tasks/packages.yml
+      tags: ["packages"]
+
     - import_tasks: tasks/vagrant-setup.yml
       tags: ["applications", "vagrant"]
 

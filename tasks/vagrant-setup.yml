@@ -1,6 +1,6 @@
 ---
 - name: Ensure temp download directory exist.
-  file:
+  ansible.builtin.file:
     state: directory
     path: "{{ vagrant_tmp_dir }}"
 
@@ -10,10 +10,11 @@
 - include: vagrant-redhat.yml
   when: ansible_os_family == 'RedHat'
 
-- name: Ensure VAGRANT_WSL_ENABLE_WINDOWS_ACCESS is set.
-  lineinfile:
-    dest: ~/.bashrc
+- name: Enable Windows access for Vagrant.
+  ansible.builtin.lineinfile:
+    dest: ~/.profile
     line: "{{ item }}"
     state: present
   loop:
     - export VAGRANT_WSL_ENABLE_WINDOWS_ACCESS="1"
+    - export PATH="$PATH:/mnt/c/Program Files/Oracle/VirtualBox"

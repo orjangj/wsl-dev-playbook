@@ -1,0 +1,7 @@
+---
+- name: Deploy wsl configuration file
+  become: true
+  ansible.builtin.copy:
+    dest: /etc/wsl.conf
+    src: ./files/wsl.conf
+

@@ -1,0 +1,16 @@
+---
+- name: Ensure package dependencies
+  become: true
+  ansible.builtin.package:
+    state: present
+    update_cache: yes
+    cache_valid_time: "86400" # One day
+    autoclean: yes
+    autoremove: yes
+    name:
+      - ca-certificates
+      - curl
+      - openssl
+      - wget
+
+

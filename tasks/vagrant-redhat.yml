@@ -1,10 +1,10 @@
 ---
 - name: Download vagrant
-  get_url:
+  ansible.builtin.get_url:
     url: "{{ vagrant_url_rpm }}"
     dest: "{{ vagrant_tmp_rpm }}"
 
 - name: Install vagrant for RedHat OS family
-  yum:
+  ansible.builtin.yum:
     name: "{{ vagrant_tmp_rpm }}"
   become: true
